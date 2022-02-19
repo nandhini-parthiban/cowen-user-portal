@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "user-board": "apps/user-board",
+    "user-board-e2e": "apps/user-board-e2e"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "root": "apps/user-board-e2e",
+  "sourceRoot": "apps/user-board-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/user-board-e2e/cypress.json",
+        "devServerTarget": "user-board:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "user-board:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/user-board-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["user-board"]
+}
