@@ -41,6 +41,14 @@ export interface AlbumObj {
     title: string;
 }
 
+export interface PhotoObj {
+    albumId: number;
+    id: number;
+    title: string;
+    url: string;
+    thumbnailUrl: string;
+}
+
 /**
  *User List service
  */
@@ -61,6 +69,15 @@ export class UserService {
         return this.http.get('albums')
         .pipe(map((albums:AlbumObj[])=> {
             return albums.filter((album) => album.userId === userId) || []
+        }));
+    }
+
+    getPhotosForAlbum (
+        albumId: number
+    ) : Observable<PhotoObj[]> {
+        return this.http.get('photos')
+        .pipe(map((photos:PhotoObj[])=> {
+            return photos.filter((photo) => photo.albumId === albumId)
         }));
     }
 

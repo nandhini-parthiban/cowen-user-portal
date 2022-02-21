@@ -1,0 +1,13 @@
+<div id="container">
+    <h1>Photos in the album</h1>
+    <ng-container *ngIf="loadStatus === 'success'; else spinner">
+        <mat-grid-list cols="5" >
+            <mat-grid-tile *ngFor="let item of photoList">
+                <img [src]="item.thumbnailUrl" />
+            </mat-grid-tile>
+        </mat-grid-list>
+    </ng-container>
+</div>
+<ng-template #spinner>
+    <mat-spinner class="center"></mat-spinner>
+</ng-template>

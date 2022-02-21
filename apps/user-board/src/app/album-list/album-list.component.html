@@ -3,7 +3,7 @@
     <mat-action-list *ngIf="loadStatus === 'success'; else spinner">
         <mat-list-item *ngFor="let item of albumList">
             <mat-icon color="primary" matListIcon> insert_photo</mat-icon>
-            <a mat-list-item>{{ item.title }}</a>
+            <a mat-list-item [routerLink]="['/photos', item.id]">{{ item.title }}</a>
         </mat-list-item>
     </mat-action-list>
 </div>

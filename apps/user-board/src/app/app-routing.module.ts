@@ -7,6 +7,7 @@ import {
 // Components
 import { UserListComponent } from './user-list/user-list.component';
 import { AlbumListComponent } from './album-list/album-list.component';
+import { PhotoListComponent } from './photo-list/photo-list.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
   {
     path: 'albums/:id',
     component: AlbumListComponent
+  },
+  {
+    path: 'photos/:id',
+    component: PhotoListComponent
   },
 ];
 
