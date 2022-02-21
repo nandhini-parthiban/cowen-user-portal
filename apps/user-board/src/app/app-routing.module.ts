@@ -8,6 +8,7 @@ import {
 import { UserListComponent } from './user-list/user-list.component';
 import { AlbumListComponent } from './album-list/album-list.component';
 import { PhotoListComponent } from './photo-list/photo-list.component';
+import { CreateAlbumComponent } from './create-album/create-album.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,10 @@ export const routes: Routes = [
     path: 'photos/:id',
     component: PhotoListComponent
   },
+  {
+    path: 'createAlbum/:id',
+    component: CreateAlbumComponent
+  }
 ];
 
 @NgModule({

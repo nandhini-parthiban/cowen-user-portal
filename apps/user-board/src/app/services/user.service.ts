@@ -81,4 +81,13 @@ export class UserService {
         }));
     }
 
+    createPhotoAlbum (
+        albumName: string,
+        formData: FormData
+    ) {
+        return this.http.post('albums', {
+            name: albumName,
+            files: formData
+        });
+    }
 }

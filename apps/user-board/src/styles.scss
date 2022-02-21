@@ -38,3 +38,14 @@ $user-board-theme: mat.define-light-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.drop-zone {
+  border: 2px dotted grey;
+  height: 100px;
+  margin: auto;
+}
+
+.drop-content {
+  margin: 30px;
+  text-align: center;
+}
+

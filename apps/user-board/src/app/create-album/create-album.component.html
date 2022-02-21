@@ -1,0 +1,61 @@
+<div id="container" [ngSwitch]="albumStatus">
+    <form [formGroup]="albumform"
+      (submit)="onCreate()"
+      novalidate>
+        <mat-card *ngSwitchDefault>
+            <mat-card-title>Create New Album</mat-card-title>
+            <mat-card-subtitle>* = required</mat-card-subtitle>
+            <mat-card-content>
+                <mat-form-field full-width>
+                    <mat-label>
+                        Album Name
+                    </mat-label>
+                    <input matInput
+                        mfmpTrimSpace
+                        formControlName="name"
+                        [maxLength]="30"
+                        required>
+                </mat-form-field>
+                <div class="center">
+                    <p>
+                        Add Photos
+                    </p>
+                    <ngx-file-drop contentClassName="drop-content"
+                                dropZoneClassName="drop-zone"
+                                accept=".png"
+                                (onFileDrop)="dropped($event)">
+                        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                            Drag and drop here or
+                            <button type="button" mat-button color="primary" (click)="openFileSelector()">
+                              <mat-icon>upload_file</mat-icon>
+                              Upload from disk
+                            </button>
+                        </ng-template>
+                    </ngx-file-drop>
+                    <div class="upload-details" *ngIf="photos.length">
+                        <p *ngFor="let item of photos">
+                           {{ item.relativePath }}
+                        </p>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions align="end">
+                <button mat-button color="primary" routerLink="">Cancel</button>
+                <button mat-button color="primary">Create</button>
+            </mat-card-actions>
+        </mat-card>
+        <div id="cc" *ngSwitchCase="'created'">
+            <p>Album {{ albumform.controls['name'].value }} created successfully!</p>
+            <button mat-button color="primary" routerLink="">Back</button>
+        </div>
+        
+        <div id="cc" *ngSwitchCase="'progress'">
+            <mat-spinner class="center"></mat-spinner>
+        </div>
+        <div id="cc" *ngSwitchCase="'error'">
+            <p>An Error occured while creating your album. Please try again later!</p>
+            <button mat-button color="primary" routerLink="">Back</button>
+        </div>
+    </form>
+</div>
+
