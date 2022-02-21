@@ -1,0 +1,20 @@
+.center {
+    margin:0 auto
+}
+#container {
+    min-height: calc(100% - 50px);
+    margin: 25px;
+    mat-card {
+        width: 500px;
+        max-width: calc(100% - 32px);
+        margin:  16px auto;
+        box-sizing: border-box;
+        mat-card-title {
+            font-size: 16px;
+        }
+        address {
+            margin-left: 16px ;
+        }
+    }
+}
+

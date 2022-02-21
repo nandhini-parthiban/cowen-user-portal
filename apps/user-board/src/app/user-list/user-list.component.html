@@ -1,0 +1,23 @@
+<div id="container">
+    <ng-container *ngIf="loadStatus === 'success'; else spinner">
+        <mat-card *ngFor="let item of usersList">
+            <mat-card-title>{{ item.name}}</mat-card-title>
+            <mat-card-content>
+                <p>Address: </p>
+                <address>
+                    {{ item.address.suite }}<br>
+                    {{ item.address.street }}<br>
+                    {{ item.address.city }}<br>
+                    {{ item.address.zipcode }}<br>
+                </address>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button color="primary">View Albums</button>
+                <button mat-button color="primary">Create Album</button>
+            </mat-card-actions>
+        </mat-card>
+    </ng-container>
+</div>
+<ng-template #spinner>
+    <mat-spinner class="center"></mat-spinner>
+</ng-template>
