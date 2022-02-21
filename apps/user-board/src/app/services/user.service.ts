@@ -35,6 +35,12 @@ export interface UserObj {
     company: CompanyObj;
 }
 
+export interface AlbumObj {
+    userId: number;
+    id: number;
+    title: string;
+}
+
 /**
  *User List service
  */
@@ -48,4 +54,14 @@ export class UserService {
         return this.http.get('users')
         .pipe(map((result:UserObj[])=> result || []));
     }
+
+    getAlbumsForUser (
+        userId: number
+    ): Observable<AlbumObj[]> {
+        return this.http.get('albums')
+        .pipe(map((albums:AlbumObj[])=> {
+            return albums.filter((album) => album.userId === userId) || []
+        }));
+    }
+
 }

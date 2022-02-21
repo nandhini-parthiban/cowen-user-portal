@@ -6,11 +6,16 @@ import {
 
 // Components
 import { UserListComponent } from './user-list/user-list.component';
+import { AlbumListComponent } from './album-list/album-list.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: UserListComponent
+  },
+  {
+    path: 'albums/:id',
+    component: AlbumListComponent
   },
 ];
 

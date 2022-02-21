@@ -1,0 +1,12 @@
+<div id="container">
+    <h1>Albums available are:</h1>
+    <mat-action-list *ngIf="loadStatus === 'success'; else spinner">
+        <mat-list-item *ngFor="let item of albumList">
+            <mat-icon color="primary" matListIcon> insert_photo</mat-icon>
+            <a mat-list-item>{{ item.title }}</a>
+        </mat-list-item>
+    </mat-action-list>
+</div>
+<ng-template #spinner>
+    <mat-spinner class="center"></mat-spinner>
+</ng-template>
